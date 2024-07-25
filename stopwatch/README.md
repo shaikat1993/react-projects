@@ -34,13 +34,13 @@ This code creates a simple stopwatch with start, stop, and reset functionality, 
 
 # Side effects can include data fetching, subscriptions, or manually changing the DOM. In the context of our stopwatch, we use useEffect to manage the timer interval.
 
-# Here's why we need useEffect in this code:
+## Here's why we need useEffect in this code:
 
-# Timer Management: The stopwatch needs to update every 10 milliseconds when it's running. We use setInterval to achieve this, but we need a way to start and stop this interval based on the isRunning state.
+### Timer Management: The stopwatch needs to update every 10 milliseconds when it's running. We use setInterval to achieve this, but we need a way to start and stop this interval based on the isRunning state.
 
-# Cleanup: When the component unmounts or when the dependencies change, we need to clear the interval to prevent memory leaks. useEffect provides a clean-up mechanism for this.
+### Cleanup: When the component unmounts or when the dependencies change, we need to clear the interval to prevent memory leaks. useEffect provides a clean-up mechanism for this.
 
-# Synchronization with State: We want the interval to start or stop whenever the isRunning state changes. useEffect allows us to respond to these state changes.
+### Synchronization with State: We want the interval to start or stop whenever the isRunning state changes. useEffect allows us to respond to these state changes.
 
 Let's break down the useEffect usage in our stopwatch code:
 
