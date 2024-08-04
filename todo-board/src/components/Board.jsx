@@ -4,7 +4,7 @@ const Board = ({task, index, taskList, setTaskList}) => {
         taskList.splice(removeIndex, 1)
         setTaskList(currentTasks => 
             currentTasks.filter(todo => 
-            index != removeIndex))
+            index !== removeIndex))
     }
     return (
         <>
