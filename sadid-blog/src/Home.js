@@ -5,7 +5,9 @@ const Home = () => {
   // creating new array of blogs
     const [blogs,setBlogs] = useState(null);
 
-    const [name, setName] = useState('shaikat');
+    // now we will create a new loading condition to 
+    //show a loader while the data will be fetched from the JSON.
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
       // fetching data 
@@ -14,19 +16,14 @@ const Home = () => {
         return response.json()
       })
       .then((data) => {
-        console.log(data);
-        setBlogs(data) 
+        setBlogs(data)
+        setIsLoading(false);
       })
-      //console.log("Use effect ran");
     }, [])
-
-    // const handleDelete =(id) => {
-    //   const newBlogs = blogs.filter(blog => blog.id !== id)
-    //   setBlogs(newBlogs)
-    // }
 
     return (  
         <div className="home">
+          {isLoading && <div>Loading...</div>}
           {blogs && <BlogList blogs = {blogs} title = "All Blogs!"/>}
         </div>
     );
